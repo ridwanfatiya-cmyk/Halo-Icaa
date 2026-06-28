@@ -197,10 +197,10 @@
 
 <div class="container">
     <h1>SEMANGAT UAS ICAAA</h1>
-    <p class="subtitle">🎵 You're on Your Own, Kid — Taylor Swift</p>
+    <p class="subtitle">🎵 Tebak Apa cobaa</p>
 
     <div class="audio-box">
-        <span>🎧 Putar Musik Pengiring:</span>
+        <span>🎧 Play Dulu Ca!:</span>
         <audio controls id="bg-music">
             <source src="yoyok.mp3" type="audio/mpeg">
             Browser kamu tidak mendukung pemutar audio.
