@@ -212,7 +212,7 @@
 
 <div class="container">
     <div class="meme-container">
-        <img src="meme.jpeg" alt="Meme Penyemangat Ica" class="meme-img">
+        <img src="meme.jpeg" class="meme-img">
     </div>
 
     <h1>SEMANGAT UAS ICAAA</h1>
