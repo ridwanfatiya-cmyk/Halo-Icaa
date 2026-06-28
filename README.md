@@ -25,10 +25,25 @@
             margin-top: 40px;
         }
 
+        /* --- STYLING GAMBAR MEME (BARU) --- */
+        .meme-container {
+            margin-bottom: 20px; /* Jarak antara meme dan judul */
+        }
+
+        .meme-img {
+            max-width: 100%; /* Agar gambar tidak meluber di HP */
+            height: auto; /* Jaga rasio gambar */
+            max-height: 300px; /* Batas tinggi maksimal di desktop */
+            border-radius: 15px; /* Sudut melengkung */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Bayangan */
+            border: 3px solid #a855f7; /* Bingkai ungu */
+        }
+
         h1 {
             font-size: 3rem;
             color: #ddd6fe;
             text-shadow: 0 0 15px rgba(167, 139, 250, 0.7);
+            margin-top: 0; /* Sesuaikan margin atas karena ada gambar */
             margin-bottom: 10px;
             animation: pulse 2s infinite alternate;
         }
@@ -196,11 +211,15 @@
 <body>
 
 <div class="container">
+    <div class="meme-container">
+        <img src="meme.jpeg" alt="Meme Penyemangat Ica" class="meme-img">
+    </div>
+
     <h1>SEMANGAT UAS ICAAA</h1>
-    <p class="subtitle">🎵 Tebak Apa cobaa</p>
+    <p class="subtitle">🎵 tebak apa hayooo</p>
 
     <div class="audio-box">
-        <span>🎧 Play Dulu Ca!:</span>
+        <span>🎧 Play Dulu Woyy:</span>
         <audio controls id="bg-music">
             <source src="yoyok.mp3" type="audio/mpeg">
             Browser kamu tidak mendukung pemutar audio.
@@ -249,63 +268,3 @@
         if (tabName === 'doa' && (!kesulitanSubmitted || !harapanSubmitted)) {
             alert("Eitss! Kamu harus mengisi dan men-submit menu 'Kesulitan' dan 'Harapan' terlebih dahulu ya ca! 😉");
             return;
-        }
-
-        // Sembunyikan semua panel & matikan class active di tombol
-        document.querySelectorAll('.content-panel').forEach(p => p.classList.remove('active'));
-        document.querySelectorAll('.menu-btn').forEach(b => b.classList.remove('active'));
-
-        // Aktifkan panel dan tombol yang dipilih
-        if (tabName === 'kesulitan') {
-            document.getElementById('panel-kesulitan').classList.add('active');
-            event.target.classList.add('active');
-        } else if (tabName === 'harapan') {
-            document.getElementById('panel-harapan').classList.add('active');
-            event.target.classList.add('active');
-        } else if (tabName === 'doa') {
-            document.getElementById('panel-doa').classList.add('active');
-            document.getElementById('btn-doa').classList.add('active');
-        }
-    }
-
-    // Fungsi menambahkan sticky note
-    function addNote(type) {
-        const textarea = document.getElementById(`input-${type}`);
-        const textValue = textarea.value.trim();
-
-        if (textValue === "") {
-            alert("Jangan dikosongin dong ca, tulis sesuatu dulu ya!");
-            return;
-        }
-
-        // Buat elemen sticky note baru
-        const note = document.createElement('div');
-        note.className = 'sticky-note';
-        note.innerText = textValue;
-
-        // Masukkan ke board masing-masing
-        document.getElementById(`board-${type}`).appendChild(note);
-
-        // Reset teks input
-        textarea.value = "";
-
-        // Ubah status submisi
-        if (type === 'kesulitan') kesulitanSubmitted = true;
-        if (type === 'harapan') harapanSubmitted = true;
-
-        // Cek apakah kedua menu sudah diisi untuk membuka kunci Doa Guweh
-        checkLockStatus();
-    }
-
-    // Fungsi mengecek dan membuka gembok menu Doa Guweh
-    function checkLockStatus() {
-        if (kesulitanSubmitted && harapanSubmitted) {
-            const btnDoa = document.getElementById('btn-doa');
-            btnDoa.classList.remove('locked');
-            btnDoa.innerText = "✨ Doa Guweh";
-        }
-    }
-</script>
-
-</body>
-</html>
